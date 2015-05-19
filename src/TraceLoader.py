@@ -4,6 +4,7 @@ import re
 
 class TraceLoader:
     listTraces = []
+    clusteredTraces = {}
     pathTraceFolder = ""
 
     def loadTrace(self,pathTraceFolder):
@@ -22,17 +23,29 @@ class TraceLoader:
                 for line in lines:
                     if line.find("CLICK") != -1:
                         if preState == "":
-                            print("Error: Click before any state in", os.path.join(root,filename))
+                            print("Error: Click before any state. In", os.path.join(root,filename))
                         newTrace.append(preState+"_"+regexClick.search(line).group(0))
                     elif line.find("state_") != -1:
                         preState = regexState.search(line).group(0)
                         newTrace.append(preState)
                     elif line.find("error free") != -1:
-                        newTrace.append("Pass")
-                    else:
-                        newTrace.append("Fail")
+                        self.listTraces.append((newTrace, "Pass"))
                         break
-                self.listTraces.append(newTrace)
+                    else:
+                        self.listTraces.append((newTrace, "Fail"))
+                        break
+                
+
+    def clusterTraces(self):
+        #seperate Pass/Fail traces
+        self.clusteredTraces["Pass"] = []
+        self.clusteredTraces["Fail"] = []
+        for t in self.listTraces:
+            if t[1] == "Pass":
+                self.clusteredTraces["Pass"].append(t[0])
+            else:
+                self.clusteredTraces["Fail"].append(t[0])
+        #todo: cluster fail traces
 
     def printTrace(self):
         for trace in self.listTraces:
@@ -40,3 +53,12 @@ class TraceLoader:
             for event in trace:
                 s = s+event+" "
             print(s)
+
+    def printClusteredTrace(self):
+        for key, value in self.clusteredTraces.items():
+            print(key)
+            for trace in value:
+                s = ""
+                for event in trace:
+                    s = s+event+" "
+                print(s)

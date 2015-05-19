@@ -1,6 +1,13 @@
 import TraceLoader
+import RuleMiner
 import os
 
+
 TL = TraceLoader.TraceLoader()
-TL.loadTrace("test\\100")
-TL.printTrace()
+TL.loadTrace("test\\trace0")
+TL.clusterTraces()
+
+
+RM = RuleMiner.RuleMiner()
+RM.setTrace(TL.clusteredTraces["Pass"])
+RM.miningRule()
