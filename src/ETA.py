@@ -10,4 +10,7 @@ TL.clusterTraces()
 
 RM = RuleMiner.RuleMiner()
 RM.setTrace(TL.clusteredTraces["Pass"])
+#RM.setTraceTest()
 RM.miningRule()
+RM.printRule(RM.rules,0)
+

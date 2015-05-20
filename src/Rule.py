@@ -4,4 +4,4 @@ class RuleNode:
 
     def __init__(self, eventname):
         self.eventName = eventname
-        children = []
+        self.children = []
