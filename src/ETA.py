@@ -1,7 +1,6 @@
 import TraceLoader
 import RuleMiner
 import RuleFilter
-from Rule import RuleNode
 import os
 
 
@@ -39,6 +38,7 @@ RM2.printRule(RM2.rules,0)
 
 
 '''
+example to test filter
 R1 = RuleNode("a")
 R2 = RuleNode("b")
 R3 = RuleNode("c")
