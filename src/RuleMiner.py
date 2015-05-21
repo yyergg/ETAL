@@ -2,18 +2,20 @@ from Rule import RuleNode
 
 
 class RuleMiner:
-    __traces = []
-    rules = None
-    __allState = []
-    __maxStateNumber = 0
-    __maxDepth = 3
-    __supportThreshold = 0.3
-    __confidenceThreshold = 0.4
+    def __init__(self):
+        self.__traces = []
+        self.rules = None
+        self.__allState = []
+        self.__maxStateNumber = 0
+        self.__maxDepth = 3
+        self.__supportThreshold = 0.3
+        self.__confidenceThreshold = 0.5        
 
     def printRule(self, root, level):
-        print("    "*level+root.eventName)
-        for child in root.children:
-            self.printRule(child, level+1)
+        if not root.removed:
+            print("    "*level+root.eventName)
+            for child in root.children:
+                self.printRule(child, level+1)
 
     def setTrace(self, inputTraces):
         self.__traces = inputTraces
@@ -34,8 +36,7 @@ class RuleMiner:
     def collectAllState(self):
         for t in self.__traces:
             for e in t:
-                if (e.find("_") == -1
-                        and not e in self.__allState):
+                if (e.find("_") == -1 and not e in self.__allState):
                     self.__allState.append(e)
                     if int(e) > self.__maxStateNumber:
                         self.__maxStateNumber = int(e)
@@ -48,7 +49,7 @@ class RuleMiner:
         return counter/float(len(self.__traces))
 
     def extendRule(self, root, oldLabels, depth):
-        # print("extending",root.eventName,oldLabels)
+        #print("extending",root.eventName,oldLabels)
         possibleViews = {}
         possibleViewSupportCounter = {}
         for label in oldLabels:
@@ -63,9 +64,10 @@ class RuleMiner:
 
         for key, value in possibleViews.items():
             if float(possibleViewSupportCounter[key])/float(len(self.__traces)) > self.__supportThreshold:
-                print(key,float(possibleViewSupportCounter[key]),float(len(self.__traces)))
+                #print(key,float(possibleViewSupportCounter[key]),float(len(self.__traces)))
                 newRule1 = RuleNode(key)
                 postStateMatrix = []
+                
                 for v in value:
                     postStateArray = [0]*(self.__maxStateNumber+1)
                     i = v[1]
@@ -84,7 +86,7 @@ class RuleMiner:
                             counter = counter + 1.0
                         j = j + 1
 
-                    print(key,str(i),counter,float(len(value)))
+                    #print(key,str(i),counter,float(len(value)))
 
                     if (counter/float(len(value))) > self.__confidenceThreshold:
                         newLabels = []
@@ -99,7 +101,7 @@ class RuleMiner:
                             j = j + 1
                         newRule2 = RuleNode(str(i))
                         newRule1.children.append(newRule2)
-                        self.printRule(root, 0)
+                        #self.printRule(root, 0)
                         if depth < self.__maxDepth:
                             self.extendRule(newRule2, newLabels, depth+1)
                     i = i + 1

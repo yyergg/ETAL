@@ -3,9 +3,10 @@ import sys
 import re
 
 class TraceLoader:
-    listTraces = []
-    clusteredTraces = {}
-    pathTraceFolder = ""
+    def __init__(self):
+        self.listTraces = []
+        self.clusteredTraces = {}
+        self.pathTraceFolder = ""        
 
     def loadTrace(self,pathTraceFolder):
         self.pathTraceFolder = os.path.join(os.getcwd(), pathTraceFolder)
@@ -49,10 +50,7 @@ class TraceLoader:
 
     def printTrace(self):
         for trace in self.listTraces:
-            s = ""
-            for event in trace:
-                s = s+event+" "
-            print(s)
+            print(" ".join(trace[0]) + " " + trace[1])
 
     def printClusteredTrace(self):
         for key, value in self.clusteredTraces.items():
