@@ -6,7 +6,7 @@ class TraceLoader:
     def __init__(self):
         self.listTraces = []
         self.clusteredTraces = {}
-        self.pathTraceFolder = ""        
+        self.pathTraceFolder = ""
 
     def loadTrace(self,pathTraceFolder):
         self.pathTraceFolder = os.path.join(os.getcwd(), pathTraceFolder)
@@ -35,7 +35,7 @@ class TraceLoader:
                     else:
                         self.listTraces.append((newTrace, "Fail"))
                         break
-                
+
 
     def clusterTraces(self):
         #seperate Pass/Fail traces
