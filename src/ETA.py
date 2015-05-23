@@ -5,9 +5,9 @@ import os
 
 
 TL = TraceLoader.TraceLoader()
-TL.loadTrace("test\\trace0")
+TL.loadTrace("test/trace0")
 TL.clusterTraces()
-#TL.printClusteredTrace()
+TL.printClusteredTrace()
 
 print("Pass Rules:")
 RM = RuleMiner.RuleMiner()
