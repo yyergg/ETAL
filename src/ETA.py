@@ -2,6 +2,7 @@ import TraceLoader
 import RuleMiner
 import RuleFilter
 import RuleChecker
+import WeightLearner
 import os
 
 
@@ -30,13 +31,11 @@ print("Fail Rules after filter:")
 RuleFilter.getSubtract(RM2.rules, RM.rules)
 RM2.printRule(RM2.rules,0)
 
-
+failRuleset = []
 for r in RM2.getAllRules(RM2.rules):
-    print(r)
-    for trace in TL.clusteredTraces["Pass"]:
-        print(RuleChecker.ruleCheck(r,trace))
+    failRuleset.append(r)
 
-
+WL = WeightLearner.WeightLearner(failRuleset,TL.clusterTraces())
 
 
 
