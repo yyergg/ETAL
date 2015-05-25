@@ -1,4 +1,4 @@
-from Rule import RuleNode
+from DataStructure import RuleNode
 
 def getSubtract(r1, r2):
     for c1 in r1.children:
@@ -13,6 +13,3 @@ def getSubtract(r1, r2):
 
     if removed:
         r1.removed = True
-
-        
-        

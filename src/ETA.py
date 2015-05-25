@@ -1,6 +1,7 @@
 import TraceLoader
 import RuleMiner
 import RuleFilter
+import RuleChecker
 import os
 
 
@@ -30,8 +31,10 @@ RuleFilter.getSubtract(RM2.rules, RM.rules)
 RM2.printRule(RM2.rules,0)
 
 
-
-
+for r in RM2.getAllRules(RM2.rules):
+    print(r)
+    for trace in TL.clusteredTraces["Pass"]:
+        print(RuleChecker.ruleCheck(r,trace))
 
 
 

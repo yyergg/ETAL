@@ -1,4 +1,4 @@
-from Weight import Weight
+from DataStructure import Weight
 
 class WeightLearner:
     def __init__(self):
