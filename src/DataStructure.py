@@ -12,3 +12,4 @@ class Weight:
         self.weight = []
         self.threshold = 0
         self.score = 0
+        self.fresh = True

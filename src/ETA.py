@@ -35,8 +35,10 @@ failRuleset = []
 for r in RM2.getAllRules(RM2.rules):
     failRuleset.append(r)
 
-WL = WeightLearner.WeightLearner(failRuleset,TL.clusterTraces())
-
+WL = WeightLearner.WeightLearner(failRuleset,TL.clusteredTraces)
+WL.printPopulation()
+WL.calculateScore("Fail")
+WL.printPopulation()
 
 
 '''

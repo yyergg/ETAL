@@ -15,7 +15,26 @@ class WeightLearner:
                 newWeight.weight.append(random.randint(0, self.maxWeightValue))
             newWeight.threshold = random.randint(0, self.maxWeightValue*len(self.ruleSet))
             newWeight.score = 0
-            print(newWeight.weight,"|",newWeight.threshold,"|",newWeight.score)
+            newWeight.fresh = True
+            self.listWeight.append(newWeight)
 
+    def printPopulation(self):
+        for w in self.listWeight:
+            print(w.weight,"|",w.threshold,"|",w.score)
 
+    def calculateScore(self, target):
+        for weight in self.listWeight:
+            if weight.fresh:
+                weight.fresh = False
+                for key,value in self.clusteredTraces.items():
+                    for trace in value:
+                        sum = 0
+                        i = 0
+                        while i < len(self.ruleSet):
+                            if RuleChecker.ruleCheck(self.ruleSet[i],trace):
+                                sum += weight.weight[i]
+                            i += 1
+                        if sum >= weight.threshold:
+                            if key == target:
+                                weight.score += 1
 
