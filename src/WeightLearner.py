@@ -6,6 +6,7 @@ class WeightLearner:
     def __init__(self, ruleset, clusteredTraces):
         self.maxWeightValue = 10
         self.populationSize = 200
+        self.killRate = 0.5
         self.clusteredTraces = clusteredTraces
         self.ruleSet = ruleset
         self.listWeight = []
@@ -38,3 +39,5 @@ class WeightLearner:
                             if key == target:
                                 weight.score += 1
 
+    def eliminate(self):
+        self.listWeight = sorted(self.listWeight, key = lambda x : x.score, reverse=True)
