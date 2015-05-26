@@ -6,6 +6,7 @@ class WeightLearner:
     def __init__(self, ruleset, clusteredTraces):
         self.maxWeightValue = 10
         self.populationSize = 200
+        self.learningRound = 100
         self.killRate = 0.5
         self.clusteredTraces = clusteredTraces
         self.ruleSet = ruleset
@@ -18,6 +19,17 @@ class WeightLearner:
             newWeight.score = 0
             newWeight.fresh = True
             self.listWeight.append(newWeight)
+
+    def learn(self,target):
+        self.printPopulation()
+        i = 0
+        while i < self.learningRound:
+            print("-------------Round",i,"-----------------")
+            self.calculateScore(target)
+            self.eliminate()
+            self.crossover()
+            self.printPopulation()
+            i += 1
 
     def printPopulation(self):
         for w in self.listWeight:
@@ -40,4 +52,18 @@ class WeightLearner:
                                 weight.score += 1
 
     def eliminate(self):
-        self.listWeight = sorted(self.listWeight, key = lambda x : x.score, reverse=True)
+        self.listWeight = sorted(self.listWeight, key = lambda x : x.score)
+        self.listWeight = self.listWeight[int(self.populationSize*self.killRate):]
+
+    def crossover(self):
+        while len(self.listWeight) < self.populationSize:
+            newWeight = Weight()
+            parent1 = self.listWeight[random.randint(0,len(self.listWeight)-1)]
+            parent2 = self.listWeight[random.randint(0,len(self.listWeight)-1)]
+            cutpoint = random.randint(0,len(self.ruleSet))
+            newWeight.weight = parent1.weight[:cutpoint] + parent2.weight[cutpoint:]
+            newWeight.threshold = random.randint(min(parent1.threshold,parent2.threshold),
+                max(parent1.threshold,parent2.threshold))
+            newWeight.score = 0
+            newWeight.fresh = True
+            self.listWeight.append(newWeight)
