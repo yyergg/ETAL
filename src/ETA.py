@@ -11,6 +11,7 @@ TL.loadTrace("test/trace0")
 TL.clusterTraces()
 TL.printClusteredTrace()
 
+'''
 print("Pass Rules:")
 RM = RuleMiner.RuleMiner()
 RM.setTrace(TL.clusteredTraces["Pass"])
@@ -37,7 +38,7 @@ for r in RM2.getAllRules(RM2.rules):
 
 WL = WeightLearner.WeightLearner(failRuleset,TL.clusteredTraces)
 WL.learn("Fail")
-
+'''
 
 
 '''
