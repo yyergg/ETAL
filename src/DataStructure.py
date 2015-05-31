@@ -13,3 +13,9 @@ class Weight:
         self.threshold = 0
         self.score = 0
         self.fresh = True
+
+class GraphNode:
+    def __init__(self,name):
+        self.name = name
+        self.children = []
+        self.BFSParent = None

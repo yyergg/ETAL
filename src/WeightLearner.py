@@ -4,6 +4,7 @@ import RuleChecker
 
 class WeightLearner:
     def __init__(self, ruleset, clusteredTraces):
+        self.RuleTraceMatrix = {}
         self.maxWeightValue = 10
         self.populationSize = 200
         self.learningRound = 100
@@ -35,21 +36,35 @@ class WeightLearner:
         for w in self.listWeight:
             print(w.weight,"|",w.threshold,"|",w.score)
 
+    def buildMatrix(self):
+        for key,value in self.clusteredTraces.items():
+            self.RuleTraceMatrix[key] = []
+            for trace in value:
+                vector = []
+                for rule in self.ruleSet:
+                    vector.append(RuleChecker.ruleCheck(rule,trace))
+                self.RuleTraceMatrix[key].append(vector)
+
     def calculateScore(self, target):
         for weight in self.listWeight:
             if weight.fresh:
                 weight.fresh = False
                 for key,value in self.clusteredTraces.items():
-                    for trace in value:
+                    i=0
+                    while i < len(value):
                         sum = 0
-                        i = 0
-                        while i < len(self.ruleSet):
-                            if RuleChecker.ruleCheck(self.ruleSet[i],trace):
-                                sum += weight.weight[i]
-                            i += 1
+                        j = 0
+                        while j < len(self.ruleSet):
+                            if self.RuleTraceMatrix[key][i][j]:
+                                sum += weight.weight[j]
+                            j += 1
                         if sum >= weight.threshold:
                             if key == target:
                                 weight.score += 1
+                        else:
+                            if key != target:
+                                weight.score += 1
+                        i += 1
 
     def eliminate(self):
         self.listWeight = sorted(self.listWeight, key = lambda x : x.score)

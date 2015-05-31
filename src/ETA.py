@@ -1,3 +1,4 @@
+import TraceGenerator
 import TraceLoader
 import RuleMiner
 import RuleFilter
@@ -11,7 +12,7 @@ TL.loadTrace("test/trace0")
 TL.clusterTraces()
 TL.printClusteredTrace()
 
-'''
+
 print("Pass Rules:")
 RM = RuleMiner.RuleMiner()
 RM.setTrace(TL.clusteredTraces["Pass"])
@@ -20,14 +21,15 @@ RM.setSupportThreshold(0.2)
 RM.miningRule()
 RM.printRule(RM.rules,0)
 
-print("Fail Rules:")
+
+
+print("android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2211) called by edu.nyu.cs.omnidroid.app.view.simple.ActivitySavedRules.onCreate(ActivitySavedRules.java:75):")
 RM2 = RuleMiner.RuleMiner()
-RM2.setTrace(TL.clusteredTraces["Fail"])
+RM2.setTrace(TL.clusteredTraces["android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2211) called by edu.nyu.cs.omnidroid.app.view.simple.ActivitySavedRules.onCreate(ActivitySavedRules.java:75)"])
 RM2.setSupportThreshold(0.6)
 RM2.setSupportThreshold(0.5)
 RM2.miningRule()
 RM2.printRule(RM2.rules,0)
-
 print("Fail Rules after filter:")
 RuleFilter.getSubtract(RM2.rules, RM.rules)
 RM2.printRule(RM2.rules,0)
@@ -37,8 +39,17 @@ for r in RM2.getAllRules(RM2.rules):
     failRuleset.append(r)
 
 WL = WeightLearner.WeightLearner(failRuleset,TL.clusteredTraces)
-WL.learn("Fail")
-'''
+WL.buildMatrix()
+WL.learn("android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2211) called by edu.nyu.cs.omnidroid.app.view.simple.ActivitySavedRules.onCreate(ActivitySavedRules.java:75)")
+
+
+TG = TraceGenerator.TraceGenerator(TL.clusteredTraces["Pass"]
+    + TL.clusteredTraces["android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2211) called by edu.nyu.cs.omnidroid.app.view.simple.ActivitySavedRules.onCreate(ActivitySavedRules.java:75)"]
+    + TL.clusteredTraces["No call stack"])
+
+TG.buildGraph()
+print("generate trace for rule:",failRuleset[4])
+print("result:",TG.generateTrace(failRuleset[4]))
 
 
 '''

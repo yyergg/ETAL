@@ -56,6 +56,8 @@ class TraceLoader:
                     or stackMember.startswith("dalvik")):
                     userHead = stackMember
             i += 1
+        if stackHead == "" and userHead == "":
+            return "No call stack"
         return stackHead+" called by "+userHead
 
 
