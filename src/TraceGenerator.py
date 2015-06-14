@@ -28,7 +28,7 @@ class TraceGenerator:
             newTrace.append(ruleInList[i-1])
             newTrace = newTrace + self.findShortestPath(ruleInList[i-1],ruleInList[i])
             i += 2
-        return newTrace
+        return self.findShortestPath("0",newTrace[0]) + newTrace
 
     def traverseBack(self,dst):
         result = []

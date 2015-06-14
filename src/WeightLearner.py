@@ -22,19 +22,19 @@ class WeightLearner:
             self.listWeight.append(newWeight)
 
     def learn(self,target):
-        self.printPopulation()
+##        self.printPopulation()
         i = 0
         while i < self.learningRound:
             print("-------------Round",i,"-----------------")
             self.calculateScore(target)
             self.eliminate()
             self.crossover()
-            self.printPopulation()
+##            self.printPopulation()
             i += 1
 
-    def printPopulation(self):
-        for w in self.listWeight:
-            print(w.weight,"|",w.threshold,"|",w.score)
+##    def printPopulation(self):
+##        for w in self.listWeight:
+##            print(w.weight,"|",w.threshold,"|",w.score)
 
     def buildMatrix(self):
         for key,value in self.clusteredTraces.items():

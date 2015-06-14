@@ -1,4 +1,5 @@
 def ruleCheck(ruleInList, trace):
+
     #print("rulecheck",ruleInList,trace)
     i = 0
     j = 0

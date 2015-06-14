@@ -9,36 +9,41 @@ class TraceLoader:
         self.pathTraceFolder = ""
 
     def loadTrace(self,pathTraceFolder):
-        self.pathTraceFolder = os.path.join(os.getcwd(), pathTraceFolder)
+        self.pathTraceFolder = os.path.join(os.getcwd(),"..", pathTraceFolder)
         listTraces = []
 
         for root, dirs, files in os.walk(self.pathTraceFolder):
             for filename in files:
-                infile = open(os.path.join(root,filename), 'r')
-                lines = infile.readlines()
-                infile.close()
-                regexState = re.compile(r'(?<=state\_)[0-9]+(?=\.)')
-                regexClick = re.compile(r'(?<=CLICK\:)[0-9]+(?=\s)')
-                newTrace = []
-                preState = ""
-                i = 0
-                while i < len(lines):
-                    if lines[i].find("CLICK") != -1:
-                        if preState == "":
-                            print("Error: Click before any state. In", os.path.join(root,filename))
-                        newTrace.append(preState+"_"+regexClick.search(lines[i]).group(0))
-                    elif lines[i].find("state_") != -1:
-                        preState = regexState.search(lines[i]).group(0)
-                        newTrace.append(preState)
-                    elif lines[i].find("error free") != -1:
-                        self.listTraces.append((newTrace, "Pass"))
-                        break
-                    else:
-                        tag = self.findFailTag(lines[i:])
-                        #print(filename,tag)
-                        self.listTraces.append((newTrace, tag))
-                        break
-                    i += 1
+                if filename == "trace.txt":
+                    infile = open(os.path.join(root,filename), 'r')
+                    lines = infile.readlines()
+                    infile.close()
+
+                    newTrace = []
+                    preState = ""
+                    i = 0
+                    while i < len(lines):
+                        #print("line = ",lines[i])
+                        if lines[i].find("move") != -1:
+                            if preState == "":
+                                print("Error: Click before any state. In", os.path.join(root,filename))
+                            #click = preState+"_"+lines[i].split(" => ")[1].replace("click ","").replace("\n","")
+                            click = lines[i].split(" => ")[1].replace("state","").replace("\n","")
+                            print("click="+click)
+                            newTrace.append(click)
+                        elif lines[i].find("uidump") != -1:
+                            preState = lines[i].split(" => ")[1].replace("state","").replace("\n","")
+                            newTrace.append(preState)
+                            print("state="+preState)
+                        elif lines[i].find("pass") != -1:
+                            self.listTraces.append((newTrace, "Pass"))
+                            break
+                        elif lines[i].find("fail") != -1:
+                            self.listTraces.append((newTrace, "Fail"))
+                            tag = self.findFailTag(lines[i:])
+                            self.listTraces.append((newTrace, tag))
+                            break
+                        i += 1
 
 
     def findFailTag(self, lines):
@@ -79,3 +84,4 @@ class TraceLoader:
                 for event in trace:
                     s = s+event+" "
                 print(s)
+        #print(value)
