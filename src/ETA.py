@@ -41,18 +41,22 @@ for r in RM2.getAllRules(RM2.rules):
     failRuleset.append(r)
 
 # Second Level Filter - Put fail rule into pass traces
-for key,value in TL.clusteredTraces.items():
-    for rule in value[:]:
-        if RuleChecker.ruleCheck2(rule,TL.clusteredTraces["Pass"]):
-            value.remove(rule)
-        else:
-            pass
-
+for far in failRuleset[:]:
+    if RuleChecker.ruleCheck2(far,TL.clusteredTraces["Pass"]):
+        value.remove(far)
+    else:
+        pass
 ##      if fail rule match twice with pass trace:
 ##          remove this fail rule from failRuleset
 ##      else:
 ##			keep this failRule
 ##      check next fail rule
+##for key,value in TL.clusteredTraces.items():
+##    for rule in value[:]:
+##        if RuleChecker.ruleCheck2(rule,TL.clusteredTraces["Pass"]):
+##            value.remove(rule)
+##        else:
+##            pass
 
 # Weight Learninig
 WL = WeightLearner.WeightLearner(failRuleset,TL.clusteredTraces)
