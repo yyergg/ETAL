@@ -1,6 +1,7 @@
 import TraceGenerator
 import TraceLoader
 import RuleMiner
+import RuleMiner2
 import RuleFilter
 import RuleChecker
 import WeightLearner
@@ -16,39 +17,37 @@ TL.printClusteredTrace()
 print("Pass Rules:")
 RM = RuleMiner.RuleMiner()
 RM.setTrace(TL.clusteredTraces["Pass"])
-RM.setSupportThreshold(0.2)
-RM.setConfidenceThreshold(0.2)
+RM.setSupportThreshold(0.5)
+RM.setConfidenceThreshold(0.5)
 RM.miningRule()
-# modify miningRule
 RM.printRule(RM.rules,0)
 
 for key, vlaue in TL.clusteredTraces.items():
     print(TL.clusteredTraces[key])
-    RM2 = RuleMiner.RuleMiner()
+    RM2 = RuleMiner2.RuleMiner()
     RM2.setTrace(TL.clusteredTraces[key])
     RM2.setSupportThreshold(0.6)
     RM2.setConfidenceThreshold(0.5)
     RM2.miningRule()
-    # modify miningRule
     RM2.printRule(RM2.rules,0)
 
-# First Level Filter
-    print("Fail Rules after filter:")
-    RuleFilter.getSubtract(RM2.rules, RM.rules)
-    RM2.printRule(RM2.rules,0)
+# First Level Filter XOR - Remove pass rule which existing in fail rule from fail rule set
+print("Fail Rules after filter:")
+RuleFilter.getSubtract(RM2.rules, RM.rules)
+RM2.printRule(RM2.rules,0)
 
-    failRuleset = []
-    for r in RM2.getAllRules(RM2.rules):
-        failRuleset.append(r)
+failRuleset = []
+for r in RM2.getAllRules(RM2.rules):
+    failRuleset.append(r)
 
-# Second Level Filter
+# Second Level Filter - Put fail rule into pass traces
 for key,value in TL.clusteredTraces.items():
     for rule in value:
         RuleChecker.ruleCheck(rule,value)
 
+
 # Weight Learninig
 WL = WeightLearner.WeightLearner(failRuleset,TL.clusteredTraces)
-
 for key, vlaue in TL.clusteredTraces.items():
     WL.buildMatrix()
     WL.learn(key)
@@ -57,9 +56,10 @@ for key, vlaue in TL.clusteredTraces.items():
     TG = TraceGenerator.TraceGenerator(TL.clusteredTraces["Pass"] + TL.clusteredTraces[key])
     TG.buildGraph()
 
-##for fr in failRuleset():
-    print("generate trace for rule:",failRuleset[4])
-    print("result:",TG.generateTrace(failRuleset[4]))
+
+for fr in failRuleset:
+    print("generate trace for rule:",fr)
+    print("result:",TG.generateTrace(fr))
 
 
 '''
