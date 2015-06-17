@@ -9,9 +9,10 @@ class TraceLoader:
         self.pathTraceFolder = ""
 
     def loadTrace(self,pathTraceFolder):
-        self.pathTraceFolder = os.path.join(os.getcwd(),"..", pathTraceFolder)
-        listTraces = []
 
+        self.pathTraceFolder = os.path.join(os.getcwd(), pathTraceFolder)
+        listTraces = []
+        print(self.pathTraceFolder)
         for root, dirs, files in os.walk(self.pathTraceFolder):
             for filename in files:
                 if filename == "trace.txt":

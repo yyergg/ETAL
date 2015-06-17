@@ -1,7 +1,6 @@
 import TraceGenerator
 import TraceLoader
 import RuleMiner
-import RuleMiner2
 import RuleFilter
 import RuleChecker
 import WeightLearner
@@ -9,7 +8,7 @@ import os
 import sys
 
 TL = TraceLoader.TraceLoader()
-TL.loadTrace("test/")
+TL.loadTrace("test")
 TL.clusterTraces()
 TL.printClusteredTrace()
 #sys.exit(0)
@@ -22,51 +21,55 @@ RM.setConfidenceThreshold(0.5)
 RM.miningRule()
 RM.printRule(RM.rules,0)
 
+
+failRuleset = []
 for key, vlaue in TL.clusteredTraces.items():
     print(TL.clusteredTraces[key])
-    RM2 = RuleMiner2.RuleMiner()
+    RM2 = RuleMiner.RuleMiner()
     RM2.setTrace(TL.clusteredTraces[key])
     RM2.setSupportThreshold(0.6)
     RM2.setConfidenceThreshold(0.5)
     RM2.miningRule()
     RM2.printRule(RM2.rules,0)
-
-# First Level Filter XOR - Remove pass rule which existing in fail rule from fail rule set
-print("Fail Rules after filter:")
-RuleFilter.getSubtract(RM2.rules, RM.rules)
-RM2.printRule(RM2.rules,0)
-
-failRuleset = []
-for r in RM2.getAllRules(RM2.rules):
-    failRuleset.append(r)
+    # First Level Filter XOR - Remove pass rule which existing in fail rule from fail rule set
+    RuleFilter.getSubtract(RM2.rules, RM.rules)
+    print("Fail Rules after filter:")    
+    RM2.printRule(RM2.rules,0)
+    for r in RM2.getAllRules(RM2.rules):
+        failRuleset.append(r)
 
 # Second Level Filter - Put fail rule into pass traces
-for far in failRuleset[:]:
-    if RuleChecker.ruleCheck2(far,TL.clusteredTraces["Pass"]):
-        value.remove(far)
-    else:
-        pass
-##      if fail rule match twice with pass trace:
-##          remove this fail rule from failRuleset
-##      else:
-##			keep this failRule
-##      check next fail rule
-##for key,value in TL.clusteredTraces.items():
-##    for rule in value[:]:
-##        if RuleChecker.ruleCheck2(rule,TL.clusteredTraces["Pass"]):
-##            value.remove(rule)
-##        else:
-##            pass
+i = 0
+while i < len(failRuleset):
+    if len(failRuleset[i]) == 0:
+        print("del", i)
+        del failRuleset[i]
+        continue
+    counter = 0
+    for t in TL.clusteredTraces["Pass"]:
+        if RuleChecker.ruleCheck(failRuleset[i],t):
+            counter += 1
+    if counter > 2:
+        del failRuleset[i]
+        i -= 1
+    i += 1
+
+print(failRuleset)
 
 # Weight Learninig
 WL = WeightLearner.WeightLearner(failRuleset,TL.clusteredTraces)
 WL.buildMatrix()
+
 for key, vlaue in TL.clusteredTraces.items():
     WL.learn(key)
 
-for key, vlaue in TL.clusteredTraces.items():
-    TG = TraceGenerator.TraceGenerator(TL.clusteredTraces["Pass"] + TL.clusteredTraces[key])
-    TG.buildGraph()
+traceInList = []
+for key, value in TL.clusteredTraces.items():
+    traceInList = traceInList + value
+
+    
+TG = TraceGenerator.TraceGenerator(traceInList)
+TG.buildGraph()
 
 for fr in failRuleset:
     print("generate trace for rule:",fr)
