@@ -1,0 +1,29 @@
+{
+    "actionArgu": [
+        360.0,
+        462.0
+    ],
+    "adbCommand": "adb -s 0A3C0D3C0F005013 shell input tap 360.0 462.0",
+    "layer": 5,
+    "actionType": "click",
+    "index": 9,
+    "targetViewAttributes": {
+        "focusable": "true",
+        "class": "android.widget.Button",
+        "resource-id": "edu.nyu.cs.omnidroid.app:id/activity_main_btnLogs",
+        "selected": "false",
+        "package": "edu.nyu.cs.omnidroid.app",
+        "index": "3",
+        "password": "false",
+        "checked": "false",
+        "focused": "false",
+        "checkable": "false",
+        "content-desc": "",
+        "clickable": "true",
+        "scrollable": "false",
+        "enabled": "true",
+        "long-clickable": "false",
+        "bounds": "[210,414][510,510]",
+        "text": "Logs"
+    }
+}

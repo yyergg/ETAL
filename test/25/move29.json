@@ -1,0 +1,29 @@
+{
+    "actionArgu": [
+        360.0,
+        665.0
+    ],
+    "adbCommand": "adb -s 0A3C0D3C0F005013 shell input tap 360.0 665.0",
+    "layer": 6,
+    "actionType": "click",
+    "index": 6,
+    "targetViewAttributes": {
+        "focusable": "false",
+        "class": "android.widget.TextView",
+        "resource-id": "edu.nyu.cs.omnidroid.app:id/activity_dlg_log_info",
+        "selected": "false",
+        "package": "edu.nyu.cs.omnidroid.app",
+        "index": "0",
+        "password": "false",
+        "checked": "false",
+        "focused": "false",
+        "checkable": "false",
+        "content-desc": "",
+        "clickable": "true",
+        "scrollable": "false",
+        "enabled": "true",
+        "long-clickable": "false",
+        "bounds": "[65,575][655,755]",
+        "text": "ID: 26378\nTimestamp: 1434433440251\nLevel: 4\nText: HandlerService got 0 action(s) for event TIME_TICK"
+    }
+}

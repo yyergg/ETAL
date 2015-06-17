@@ -1,0 +1,29 @@
+{
+    "actionArgu": [
+        233.0,
+        356.0
+    ],
+    "adbCommand": "adb -s 0A3C0D3C0F005013 shell input tap 233.0 356.0",
+    "layer": 10,
+    "actionType": "click",
+    "index": 10,
+    "targetViewAttributes": {
+        "focusable": "true",
+        "class": "android.widget.Button",
+        "resource-id": "android:id/amPm",
+        "selected": "false",
+        "package": "edu.nyu.cs.omnidroid.app",
+        "index": "0",
+        "password": "false",
+        "checked": "false",
+        "focused": "false",
+        "checkable": "false",
+        "content-desc": "",
+        "clickable": "true",
+        "scrollable": "false",
+        "enabled": "true",
+        "long-clickable": "false",
+        "bounds": "[149,308][317,404]",
+        "text": "\u4e0b\u5348"
+    }
+}

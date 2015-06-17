@@ -1,0 +1,29 @@
+{
+    "actionArgu": [
+        360.0,
+        681.0
+    ],
+    "adbCommand": "adb -s 0A3C0D3C0F005013 shell input tap 360.0 681.0",
+    "layer": 13,
+    "actionType": "click",
+    "index": 25,
+    "targetViewAttributes": {
+        "focusable": "true",
+        "class": "android.widget.ListView",
+        "resource-id": "edu.nyu.cs.omnidroid.app:id/activity_logs_listview",
+        "selected": "false",
+        "package": "edu.nyu.cs.omnidroid.app",
+        "index": "0",
+        "password": "false",
+        "checked": "false",
+        "focused": "true",
+        "checkable": "false",
+        "content-desc": "",
+        "clickable": "true",
+        "scrollable": "true",
+        "enabled": "true",
+        "long-clickable": "false",
+        "bounds": "[30,208][690,1154]",
+        "text": ""
+    }
+}

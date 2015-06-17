@@ -1,0 +1,29 @@
+{
+    "actionArgu": [
+        360.0,
+        407.0
+    ],
+    "adbCommand": "adb -s 0A3C0D3C0F005013 shell input tap 360.0 407.0",
+    "layer": 10,
+    "actionType": "click",
+    "index": 30,
+    "targetViewAttributes": {
+        "focusable": "true",
+        "class": "android.widget.FrameLayout",
+        "resource-id": "com.android.systemui:id/content",
+        "selected": "false",
+        "package": "com.android.systemui",
+        "index": "0",
+        "password": "false",
+        "checked": "false",
+        "focused": "false",
+        "checkable": "false",
+        "content-desc": "",
+        "clickable": "true",
+        "scrollable": "false",
+        "enabled": "true",
+        "long-clickable": "false",
+        "bounds": "[0,343][720,471]",
+        "text": ""
+    }
+}

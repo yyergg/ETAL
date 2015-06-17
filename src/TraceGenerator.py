@@ -21,20 +21,25 @@ class TraceGenerator:
                 i += 1
 
     def generateTrace(self,ruleInList):
+        ruleInList = ["0"] + ruleInList
         newTrace = []
-        i = 2
-        while i < len(ruleInList):
-            newTrace.append(ruleInList[i-2])
-            newTrace.append(ruleInList[i-1])
-            newTrace = newTrace + self.findShortestPath(ruleInList[i-1],ruleInList[i])
-            i += 2
+        i = 0
+        while i < len(ruleInList) - 1:
+            newTrace = newTrace + self.findShortestPath(ruleInList[i],ruleInList[i+1])
+            #print(self.findShortestPath(ruleInList[i],ruleInList[i+1]))
+            i += 1
+        newTrace.append(ruleInList[-1])
         return newTrace
 
     def traverseBack(self,dst):
         result = []
         while dst.BFSParent != None:
+            print(dst.BFSParent.name)
             result.append(dst.name)
             dst = dst.BFSParent
+        result.append(dst.name)
+        result.reverse()
+        result = result[:-1]
         return result
 
     def findShortestPath(self, src, dst):
@@ -44,6 +49,7 @@ class TraceGenerator:
             value.BFSParent = None
 
         visited = []
+        visited.append(src)
         frontier = []
         frontier.append(self.nodeMap[src])
         while True:
@@ -55,7 +61,7 @@ class TraceGenerator:
                         visited.append(child.name)
                         child.BFSParent = i
                         if child.name == dst:
-                            return self.traverseBack(i)
+                            return self.traverseBack(child)
                         else:
                             nextFrontier.append(child)
             frontier = nextFrontier

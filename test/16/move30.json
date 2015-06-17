@@ -1,0 +1,26 @@
+{
+    "actionArgu": "bB2vSbi9W7PTUBAHbEF",
+    "adbCommand": "adb -s 0A3C0D3C0F005013 shell input text bB2vSbi9W7PTUBAHbEF",
+    "layer": 8,
+    "actionType": "text",
+    "index": 9,
+    "targetViewAttributes": {
+        "focusable": "true",
+        "class": "android.widget.EditText",
+        "resource-id": "edu.nyu.cs.omnidroid.app:id/activity_dlg_rule_name_et_rule_name",
+        "selected": "false",
+        "package": "edu.nyu.cs.omnidroid.app",
+        "index": "1",
+        "password": "false",
+        "checked": "false",
+        "focused": "true",
+        "checkable": "false",
+        "content-desc": "",
+        "clickable": "true",
+        "scrollable": "false",
+        "enabled": "true",
+        "long-clickable": "true",
+        "bounds": "[220,257][500,467]",
+        "text": "g8oPXGNFoE9sxtVscMjDS1U6pIvrnrgetSet Phone Silent"
+    }
+}

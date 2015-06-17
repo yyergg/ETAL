@@ -35,12 +35,14 @@ class RuleMiner:
         self.confidenceThreshold = value
 
     def collectAllState(self):
-        for t in self.traces:
-            for e in t:
-                if (e.find("_") == -1 and not e in self.allState):
-                    self.allState.append(e)
-                    if int(e) > self.maxStateNumber:
-                        self.maxStateNumber = int(e)
+        for trace in self.traces:
+            i = 0
+            for state in trace:
+                if ((i%2) == 0 and not state in self.allState):
+                    self.allState.append(state)
+                    if int(state) > self.maxStateNumber:
+                        self.maxStateNumber = int(state)
+                i += 1
 
     def calculateSupport(self, statename):
         counter = 0.0
@@ -68,12 +70,13 @@ class RuleMiner:
                 #print(key,float(possibleViewSupportCounter[key]),float(len(self.traces)))
                 newRule1 = RuleNode(key)
                 postStateMatrix = []
-                
+
                 for v in value:
                     postStateArray = [0]*(self.maxStateNumber+1)
                     i = v[1]
                     while i < len(self.traces[v[0]]):
-                        if self.traces[v[0]][i].find("_") == -1:
+                        #if self.traces[v[0]][i].find("_") == -1:
+                        if i%2 == 0:
                             postStateArray[int(self.traces[v[0]][i])] = 1
                         i = i + 1
                     postStateMatrix.append(postStateArray)

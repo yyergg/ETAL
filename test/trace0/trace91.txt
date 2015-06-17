@@ -1,7 +1,0 @@
-C:\Users\ASTROHSU\Desktop\SpecTemplateMiner-master\Activities/state_0.xml(match)
-CLICK:1
-Error--------- beginning of /dev/log/system
-
---------- beginning of /dev/log/main
-
-

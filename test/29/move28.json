@@ -1,0 +1,11 @@
+{
+    "actionArgu": [
+        "4",
+        "BACK"
+    ],
+    "adbCommand": "adb -s 0A3C0D3C0F005013 shell input keyevent 4",
+    "layer": -1,
+    "actionType": "keyevent",
+    "index": -1,
+    "targetViewAttributes": "None"
+}

@@ -1,0 +1,25 @@
+--------- beginning of /dev/log/main
+--------- beginning of /dev/log/system
+E/AndroidRuntime(22439): FATAL EXCEPTION: main
+E/AndroidRuntime(22439): Process: edu.nyu.cs.omnidroid.app, PID: 22439
+E/AndroidRuntime(22439): java.lang.RuntimeException: Unable to start activity ComponentInfo{edu.nyu.cs.omnidroid.app/edu.nyu.cs.omnidroid.app.view.simple.ActivityDlgFilterInput}: java.lang.IllegalArgumentException: Unknown filter ID: 12
+E/AndroidRuntime(22439): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2196)
+E/AndroidRuntime(22439): 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2246)
+E/AndroidRuntime(22439): 	at android.app.ActivityThread.access$700(ActivityThread.java:145)
+E/AndroidRuntime(22439): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1407)
+E/AndroidRuntime(22439): 	at android.os.Handler.dispatchMessage(Handler.java:102)
+E/AndroidRuntime(22439): 	at android.os.Looper.loop(Looper.java:137)
+E/AndroidRuntime(22439): 	at android.app.ActivityThread.main(ActivityThread.java:5062)
+E/AndroidRuntime(22439): 	at java.lang.reflect.Method.invokeNative(Native Method)
+E/AndroidRuntime(22439): 	at java.lang.reflect.Method.invoke(Method.java:515)
+E/AndroidRuntime(22439): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:779)
+E/AndroidRuntime(22439): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:595)
+E/AndroidRuntime(22439): 	at dalvik.system.NativeStart.main(Native Method)
+E/AndroidRuntime(22439): Caused by: java.lang.IllegalArgumentException: Unknown filter ID: 12
+E/AndroidRuntime(22439): 	at edu.nyu.cs.omnidroid.app.view.simple.factoryui.RuleFilterViewFactory.buildUIForFilter(RuleFilterViewFactory.java:107)
+E/AndroidRuntime(22439): 	at edu.nyu.cs.omnidroid.app.view.simple.ActivityDlgFilterInput.initializeUI(ActivityDlgFilterInput.java:72)
+E/AndroidRuntime(22439): 	at edu.nyu.cs.omnidroid.app.view.simple.ActivityDlgFilterInput.onCreate(ActivityDlgFilterInput.java:51)
+E/AndroidRuntime(22439): 	at android.app.Activity.performCreate(Activity.java:5243)
+E/AndroidRuntime(22439): 	at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1087)
+E/AndroidRuntime(22439): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2150)
+E/AndroidRuntime(22439): 	... 11 more

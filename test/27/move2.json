@@ -1,0 +1,29 @@
+{
+    "actionArgu": [
+        360.0,
+        418.0
+    ],
+    "adbCommand": "adb -s 0A3C0D3C0F005013 shell input tap 360.0 418.0",
+    "layer": 7,
+    "actionType": "click",
+    "index": 15,
+    "targetViewAttributes": {
+        "focusable": "false",
+        "class": "android.widget.LinearLayout",
+        "resource-id": "",
+        "selected": "false",
+        "package": "edu.nyu.cs.omnidroid.app",
+        "index": "2",
+        "password": "false",
+        "checked": "false",
+        "focused": "false",
+        "checkable": "false",
+        "content-desc": "",
+        "clickable": "true",
+        "scrollable": "false",
+        "enabled": "true",
+        "long-clickable": "false",
+        "bounds": "[0,371][720,465]",
+        "text": ""
+    }
+}

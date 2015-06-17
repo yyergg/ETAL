@@ -1,0 +1,29 @@
+{
+    "actionArgu": [
+        360.0,
+        664.5
+    ],
+    "adbCommand": "adb -s 0A3C0D3C0F005013 shell input tap 360.0 664.5",
+    "layer": 6,
+    "actionType": "click",
+    "index": 6,
+    "targetViewAttributes": {
+        "focusable": "false",
+        "class": "android.widget.TextView",
+        "resource-id": "edu.nyu.cs.omnidroid.app:id/activity_dlg_log_info",
+        "selected": "false",
+        "package": "edu.nyu.cs.omnidroid.app",
+        "index": "0",
+        "password": "false",
+        "checked": "false",
+        "focused": "false",
+        "checkable": "false",
+        "content-desc": "",
+        "clickable": "true",
+        "scrollable": "false",
+        "enabled": "true",
+        "long-clickable": "false",
+        "bounds": "[65,525][655,804]",
+        "text": "ID: 26380\nTimestamp: 1434433500138\nApplication Name: Android\nEvent Name: Time is\nParameters: Bundle[{Time=2015-06-16 13:45:00, Location=}]\nText: Time isBundle[{Time=2015-06-16 13:45:00, Location=}]"
+    }
+}
