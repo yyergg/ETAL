@@ -1,0 +1,29 @@
+{
+    "actionArgu": [
+        559.0,
+        516.0
+    ],
+    "adbCommand": "adb -s 0A3C0D3C0F005013 shell input tap 559.0 516.0",
+    "layer": 12,
+    "actionType": "click",
+    "index": 17,
+    "targetViewAttributes": {
+        "focusable": "true",
+        "class": "android.widget.ImageButton",
+        "resource-id": "android:id/increment",
+        "selected": "false",
+        "package": "edu.nyu.cs.omnidroid.app",
+        "index": "0",
+        "password": "false",
+        "checked": "false",
+        "focused": "false",
+        "checkable": "false",
+        "content-desc": "\u589e\u52a0\u5206\u9418\u6578",
+        "clickable": "true",
+        "scrollable": "false",
+        "enabled": "true",
+        "long-clickable": "true",
+        "bounds": "[489,472][629,560]",
+        "text": ""
+    }
+}

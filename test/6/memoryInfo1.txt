@@ -1,0 +1,33 @@
+Applications Memory Usage (kB):
+Uptime: 1433037 Realtime: 1433027
+
+** MEMINFO in pid 8632 [edu.nyu.cs.omnidroid.app] **
+                   Pss  Private  Private  Swapped     Heap     Heap     Heap
+                 Total    Dirty    Clean    Dirty     Size    Alloc     Free
+                ------   ------   ------   ------   ------   ------   ------
+  Native Heap        0        0        0        0     2852     2068      563
+  Dalvik Heap     1536     1432        0        0    10952     3604     7348
+ Dalvik Other      930      796        0        0                           
+        Stack       20       20        0        0                           
+       Cursor       24       24        0        0                           
+    Other dev        4        0        4        0                           
+     .so mmap      854      552       28        0                           
+    .apk mmap       95        0       24        0                           
+    .ttf mmap       68        0        0        0                           
+    .dex mmap      743       32      356        0                           
+   Other mmap       23        8        0        0                           
+      Unknown     1180     1172        0        0                           
+        TOTAL     5477     4036      412        0    13804     5672     7911
+ 
+ Objects
+               Views:       17         ViewRootImpl:        2
+         AppContexts:        6           Activities:        1
+              Assets:        2        AssetManagers:        2
+       Local Binders:       16        Proxy Binders:       24
+    Death Recipients:        0
+     OpenSSL Sockets:        0
+ 
+ SQL
+         MEMORY_USED:        0
+  PAGECACHE_OVERFLOW:        0          MALLOC_SIZE:       62
+ 

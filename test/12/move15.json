@@ -1,0 +1,29 @@
+{
+    "actionArgu": [
+        547.0,
+        357.0
+    ],
+    "adbCommand": "adb -s 0A3C0D3C0F005013 shell input tap 547.0 357.0",
+    "layer": 12,
+    "actionType": "click",
+    "index": 18,
+    "targetViewAttributes": {
+        "focusable": "true",
+        "class": "android.widget.EditText",
+        "resource-id": "android:id/numberpicker_input",
+        "selected": "false",
+        "package": "edu.nyu.cs.omnidroid.app",
+        "index": "1",
+        "password": "false",
+        "checked": "false",
+        "focused": "true",
+        "checkable": "false",
+        "content-desc": "",
+        "clickable": "true",
+        "scrollable": "false",
+        "enabled": "true",
+        "long-clickable": "true",
+        "bounds": "[477,310][617,404]",
+        "text": "00"
+    }
+}

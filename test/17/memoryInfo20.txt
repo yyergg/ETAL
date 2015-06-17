@@ -1,0 +1,39 @@
+Applications Memory Usage (kB):
+Uptime: 3754575 Realtime: 3754565
+
+** MEMINFO in pid 21148 [edu.nyu.cs.omnidroid.app] **
+                   Pss  Private  Private  Swapped     Heap     Heap     Heap
+                 Total    Dirty    Clean    Dirty     Size    Alloc     Free
+                ------   ------   ------   ------   ------   ------   ------
+  Native Heap        0        0        0        0     4196     3805      250
+  Dalvik Heap     7163     7020        0        0    10952     7863     3089
+ Dalvik Other     1439     1280        0        0                           
+        Stack       20       20        0        0                           
+       Cursor        4        4        0        0                           
+    Other dev     5950        0        4        0                           
+     .so mmap     1360     1032       32        0                           
+    .apk mmap      140        0       32        0                           
+    .ttf mmap      113        0        0        0                           
+    .dex mmap      875       36      360        0                           
+   Other mmap       27        8        0        0                           
+      Unknown     2163     2152        0        0                           
+        TOTAL    19254    11552      428        0    15148    11668     3339
+ 
+ Objects
+               Views:      289         ViewRootImpl:        4
+         AppContexts:       10           Activities:        7
+              Assets:        2        AssetManagers:        2
+       Local Binders:       25        Proxy Binders:       27
+    Death Recipients:        0
+     OpenSSL Sockets:        0
+ 
+ SQL
+         MEMORY_USED:     1005
+  PAGECACHE_OVERFLOW:      464          MALLOC_SIZE:       62
+ 
+ DATABASES
+      pgsz     dbsz   Lookaside(b)          cache  Dbname
+         4      384             17         0/75/1  /data/data/edu.nyu.cs.omnidroid.app/databases/omnidroid
+         4      384            134       67/86/12  /data/data/edu.nyu.cs.omnidroid.app/databases/omnidroid
+         4      384            103        9/24/10  /data/data/edu.nyu.cs.omnidroid.app/databases/omnidroid
+         4      384             17         0/75/1  /data/data/edu.nyu.cs.omnidroid.app/databases/omnidroid

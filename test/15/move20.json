@@ -1,0 +1,26 @@
+{
+    "actionArgu": "4jyOI4jMLSZZ3gxqgwO",
+    "adbCommand": "adb -s 0A3C0D3C0F005013 shell input text 4jyOI4jMLSZZ3gxqgwO",
+    "layer": 8,
+    "actionType": "text",
+    "index": 11,
+    "targetViewAttributes": {
+        "focusable": "true",
+        "class": "android.widget.EditText",
+        "resource-id": "edu.nyu.cs.omnidroid.app:id/activity_dlg_rule_name_et_rule_description",
+        "selected": "false",
+        "package": "edu.nyu.cs.omnidroid.app",
+        "index": "3",
+        "password": "false",
+        "checked": "false",
+        "focused": "false",
+        "checkable": "false",
+        "content-desc": "",
+        "clickable": "true",
+        "scrollable": "false",
+        "enabled": "true",
+        "long-clickable": "true",
+        "bounds": "[220,533][500,785]",
+        "text": "Set phone silent a4sUHlVg5WAF9p6fter midnight"
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "actionArgu": "qVZnp7V8LqxEfpu18Zv",
+    "adbCommand": "adb -s 0A3C0D3C0F005013 shell input text qVZnp7V8LqxEfpu18Zv",
+    "layer": 10,
+    "actionType": "text",
+    "index": 11,
+    "targetViewAttributes": {
+        "focusable": "true",
+        "class": "android.widget.EditText",
+        "resource-id": "",
+        "selected": "false",
+        "package": "edu.nyu.cs.omnidroid.app",
+        "index": "1",
+        "password": "false",
+        "checked": "false",
+        "focused": "true",
+        "checkable": "false",
+        "content-desc": "",
+        "clickable": "true",
+        "scrollable": "false",
+        "enabled": "true",
+        "long-clickable": "true",
+        "bounds": "[184,320][536,572]",
+        "text": "FIQLKStscPoy07gAJWLoYROaUOGCuBwwGGBIfatWgYtR6z6kkRoGce1OB2AWXbAKXNJ5g"
+    }
+}

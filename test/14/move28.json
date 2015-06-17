@@ -1,0 +1,29 @@
+{
+    "actionArgu": [
+        308.5,
+        616.0
+    ],
+    "adbCommand": "adb -s 0A3C0D3C0F005013 shell input tap 308.5 616.0",
+    "layer": 7,
+    "actionType": "click",
+    "index": 13,
+    "targetViewAttributes": {
+        "focusable": "true",
+        "class": "android.widget.Button",
+        "resource-id": "edu.nyu.cs.omnidroid.app:id/activity_dlg_action_login_input_btnOk",
+        "selected": "false",
+        "package": "edu.nyu.cs.omnidroid.app",
+        "index": "0",
+        "password": "false",
+        "checked": "false",
+        "focused": "false",
+        "checkable": "false",
+        "content-desc": "",
+        "clickable": "true",
+        "scrollable": "false",
+        "enabled": "true",
+        "long-clickable": "false",
+        "bounds": "[268,610][349,622]",
+        "text": "OK"
+    }
+}

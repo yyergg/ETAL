@@ -1,0 +1,26 @@
+{
+    "actionArgu": "FMOupBsD",
+    "adbCommand": "adb -s 0A3C0D3C0F005013 shell input text FMOupBsD",
+    "layer": 8,
+    "actionType": "text",
+    "index": 11,
+    "targetViewAttributes": {
+        "focusable": "true",
+        "class": "android.widget.EditText",
+        "resource-id": "edu.nyu.cs.omnidroid.app:id/activity_dlg_rule_name_et_rule_description",
+        "selected": "false",
+        "package": "edu.nyu.cs.omnidroid.app",
+        "index": "3",
+        "password": "false",
+        "checked": "false",
+        "focused": "false",
+        "checkable": "false",
+        "content-desc": "",
+        "clickable": "true",
+        "scrollable": "false",
+        "enabled": "true",
+        "long-clickable": "true",
+        "bounds": "[220,590][500,716]",
+        "text": "Set phone loud after 9AM"
+    }
+}
