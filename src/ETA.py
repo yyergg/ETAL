@@ -23,25 +23,21 @@ RM.printRule(RM.rules,0)
 
 print("start mining fail rule:")
 failRuleset = []
-for key, vlaue in TL.clusteredTraces.items():
-    print(TL.clusteredTraces["Fail"])
-    RM2 = RuleMiner.RuleMiner()
-    RM2.setTrace(TL.clusteredTraces["Fail"])
-    RM2.setSupportThreshold(0.4)
-    RM2.setConfidenceThreshold(0.5)
-    RM2.miningRule()
-    RM2.printRule(RM2.rules,0)
+for key, value in TL.clusteredTraces.items():
+    if key != "Pass":
+        print(TL.clusteredTraces[key])
+        RM2 = RuleMiner.RuleMiner()
+        RM2.setTrace(TL.clusteredTraces[key])
+        RM2.setSupportThreshold(0.4)
+        RM2.setConfidenceThreshold(0.5)
+        RM2.miningRule()
+        RM2.printRule(RM2.rules,0)
 
-    # First Level Filter XOR - Remove pass rule which existing in fail rule from fail rule set
-    RuleFilter.getSubtract(RM2.rules, RM.rules)
-    print("Fail Rules after 1-level filter:")
-    RM2.printRule(RM2.rules,0)
-    for r in RM2.getAllRules(RM2.rules):
-        result = False
-        for k in failRuleset:
-            if len(set(r) & set(k)) == len(set(r)) and len(set(r))==len(set(k)):
-                result = True
-        if not result:
+        # First Level Filter XOR - Remove pass rule which existing in fail rule from fail rule set
+        RuleFilter.getSubtract(RM2.rules, RM.rules)
+        print("Fail Rules after 1-level filter:")
+        RM2.printRule(RM2.rules,0)
+        for r in RM2.getAllRules(RM2.rules):
             failRuleset.append(r)
 
 
@@ -73,13 +69,8 @@ for r in failRuleset:
 
 traceInList = []
 for key, value in TL.clusteredTraces.items():
-    for s in value:
-        exist = False
-        for k in traceInList:
-            if len(set(s) & set(k)) == len(set(s)) and len(set(s)) == len(set(k)):
-                exist = True
-        if not exist:
-            traceInList.append(s)
+    traceInList =  traceInList + value
+
 ##                print("traceinlist:")
 print(traceInList)
 ##sys.exit(0)
