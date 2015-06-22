@@ -10,7 +10,7 @@ class TraceLoader:
 
     def loadTrace(self,pathTraceFolder):
 
-        self.pathTraceFolder = os.path.join(os.getcwd(), pathTraceFolder)
+        self.pathTraceFolder = os.path.join(os.getcwd(),"..",pathTraceFolder)
         listTraces = []
         print(self.pathTraceFolder)
         for root, dirs, files in os.walk(self.pathTraceFolder):
