@@ -22,7 +22,7 @@ print("Pass Rules:")
 RM.printRule(RM.rules,0)
 
 print("start mining fail rule:")
-failRuleset = []
+failRuleSetDict = {}
 for key, value in TL.clusteredTraces.items():
     if key != "Pass":
         print(TL.clusteredTraces[key])
@@ -37,35 +37,37 @@ for key, value in TL.clusteredTraces.items():
         RuleFilter.getSubtract(RM2.rules, RM.rules)
         print("Fail Rules after 1-level filter:")
         RM2.printRule(RM2.rules,0)
+        ruleList = []
         for r in RM2.getAllRules(RM2.rules):
-            failRuleset.append(r)
+            ruleList.append(r)
+        failRuleSetDict[key] = ruleList
 
 
-# Second Level Filter - Put fail rule into pass traces
+# Second Level Filter - Apply fail rule on pass traces
 i = 0
-while i < len(failRuleset):
-    if len(failRuleset[i]) == 0:
-        print("del", i)
-        del failRuleset[i]
-        continue
-    counter = 0
-    for t in TL.clusteredTraces["Pass"]:
-        if RuleChecker.ruleCheck(failRuleset[i],t):
-            counter += 1
-    if counter > 2:
-        del failRuleset[i]
-        i -= 1
-    i += 1
+for key,value in failRuleSetDict.items():
+    while i < len(value):
+        if len(value[i]) == 0:
+            print("del", i)
+            del value[i]
+            continue
+        counter = 0
+        for t in TL.clusteredTraces["Pass"]:
+            if RuleChecker.ruleCheck(value[i],t):
+                counter += 1
+        if counter > 2:
+            del value[i]
+            i -= 1
+        i += 1
 
-print("Fail Rules after 2-level filter:")
-print(failRuleset)
 
-# Weight Learninig
-WL = WeightLearner.WeightLearner(failRuleset,TL.clusteredTraces)
-WL.buildMatrix()
-
-for r in failRuleset:
-    WL.learn(r)
+topFailRules = {}
+for key, value in failRuleSetDict.items():
+    # Weight Learninig
+    WL = WeightLearner.WeightLearner(value,TL.clusteredTraces)
+    WL.buildMatrix()
+    WL.learn(key)
+    topFailRules[key] = WL.getTopRule()
 
 traceInList = []
 for key, value in TL.clusteredTraces.items():
@@ -78,9 +80,9 @@ print(traceInList)
 TG = TraceGenerator.TraceGenerator(traceInList)
 TG.buildGraph()
 
-for fr in failRuleset:
-    print("generate trace for rule:",fr)
-    print("result:",TG.generateTrace(fr))
+for key,value in topFailRules.items():
+    print("generate trace for top rule of cluster:",key)
+    print("result:",TG.generateTrace(value))
 
 '''
 example to test filter

@@ -17,6 +17,7 @@ class TraceGenerator:
                 if trace[i] not in self.nodeMap:
                     self.nodeMap[trace[i]] = GraphNode(trace[i])
                 if i != 0:
+                    print(trace[i-1],"->",trace[i])
                     self.nodeMap[trace[i-1]].children.append(self.nodeMap[trace[i]])
                 i += 1
 
