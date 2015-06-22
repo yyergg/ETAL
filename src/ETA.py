@@ -73,7 +73,15 @@ for r in failRuleset:
 
 traceInList = []
 for key, value in TL.clusteredTraces.items():
-    traceInList = traceInList + value
+    for s in value:
+        exist = False
+        for k in traceInList:
+            if len(set(s) & set(k)) == len(set(s)) and len(set(s)) == len(set(k)):
+                exist = True
+        if not exist:
+            traceInList.append(s)
+##                print("traceinlist:")
+print(traceInList)
 ##sys.exit(0)
 
 TG = TraceGenerator.TraceGenerator(traceInList)

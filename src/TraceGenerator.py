@@ -21,11 +21,11 @@ class TraceGenerator:
                 i += 1
 
     def generateTrace(self,ruleInList):
-##        ruleInList = ["0"] + ruleInList
+        ruleInList = ["0"] + ruleInList
         newTrace = []
         i = 0
         while i < len(ruleInList) - 1:
-##            newTrace = newTrace + self.findShortestPath(ruleInList[i],ruleInList[i+1])
+            newTrace = newTrace + self.findShortestPath(ruleInList[i],ruleInList[i+1])
             #print(self.findShortestPath(ruleInList[i],ruleInList[i+1]))
             i += 1
         newTrace.append(ruleInList[-1])
@@ -44,10 +44,8 @@ class TraceGenerator:
 
     def findShortestPath(self, src, dst):
         print("find shortest path",src,dst)
-
         for key,value in self.nodeMap.items():
             value.BFSParent = None
-
         visited = []
         visited.append(src)
         frontier = []
