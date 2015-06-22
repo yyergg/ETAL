@@ -17,6 +17,7 @@ class TraceGenerator:
                 if trace[i] not in self.nodeMap:
                     self.nodeMap[trace[i]] = GraphNode(trace[i])
                 if i != 0:
+                    print(trace[i-1],"->",trace[i])
                     self.nodeMap[trace[i-1]].children.append(self.nodeMap[trace[i]])
                 i += 1
 
@@ -44,15 +45,14 @@ class TraceGenerator:
 
     def findShortestPath(self, src, dst):
         print("find shortest path",src,dst)
-
         for key,value in self.nodeMap.items():
             value.BFSParent = None
-
         visited = []
         visited.append(src)
         frontier = []
         frontier.append(self.nodeMap[src])
-        while True:
+        counter = 0
+        while counter < len(self.nodeMap):
             nextFrontier = []
             for i in frontier:
                 for child in i.children:
@@ -65,3 +65,4 @@ class TraceGenerator:
                         else:
                             nextFrontier.append(child)
             frontier = nextFrontier
+            counter += 1

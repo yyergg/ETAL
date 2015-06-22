@@ -21,6 +21,19 @@ class WeightLearner:
             newWeight.fresh = True
             self.listWeight.append(newWeight)
 
+
+    def getTopRule(self):
+        maxWeightRuleIndex = 0
+        maxWeight = 0
+        i = 0
+        while i < len(self.listWeight[0].weight):
+            if self.listWeight[0].weight[i] > maxWeight:
+                maxWeight = self.listWeight[0].weight[i]
+                maxWeightRuleIndex = i
+            i += 1
+        return self.ruleSet[maxWeightRuleIndex]
+
+
     def learn(self,target):
 ##        self.printPopulation()
         i = 0
@@ -31,6 +44,7 @@ class WeightLearner:
             self.crossover()
 ##            self.printPopulation()
             i += 1
+        self.eliminate()
 
 ##    def printPopulation(self):
 ##        for w in self.listWeight:
