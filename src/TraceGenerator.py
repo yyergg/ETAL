@@ -50,7 +50,8 @@ class TraceGenerator:
         visited.append(src)
         frontier = []
         frontier.append(self.nodeMap[src])
-        while True:
+        counter = 0
+        while counter < len(self.nodeMap):
             nextFrontier = []
             for i in frontier:
                 for child in i.children:
@@ -63,3 +64,4 @@ class TraceGenerator:
                         else:
                             nextFrontier.append(child)
             frontier = nextFrontier
+            counter += 1
