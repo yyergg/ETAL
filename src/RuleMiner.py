@@ -7,7 +7,7 @@ class RuleMiner:
         self.rules = None
         self.allState = []
         self.maxStateNumber = 0
-        self.maxDepth = 3
+        self.maxDepth = 5
         self.supportThreshold = 0.3
         self.confidenceThreshold = 0.5
         self.returRule = []

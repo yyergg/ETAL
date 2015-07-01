@@ -1,0 +1,17 @@
+{
+  "component": "TraceCollector",
+  "algorithm": "monkey",
+  "userName": "David-exp1-1",
+  "appPackageName": "org.jessies.dalvikexplorer",
+  "firstActivityName": "org.jessies.dalvikexplorer.DalvikExplorerActivity",
+  "traceLength": 20,
+  "traceAmount": 10,
+  "version":"old",
+  "sleepTime": 2,
+  "serialNumber": "BL4C10D05831",
+  "abstractionLayer":0,
+  "abstractionLayout":"None",
+  "absIgnoredClasses":"None",
+  "abstractionAttributes":"setIgnoredAttrib",
+  "absIgnoredAttrib":["text"]
+}

@@ -1,0 +1,46 @@
+uidump0.xml => state353
+ move1.json => state1
+uidump1.xml => state353
+ move2.json => state1
+uidump2.xml => state353
+ move3.json => state11
+uidump3.xml => state379
+ move4.json => state6
+uidump4.xml => state540
+ move5.json => state11
+uidump5.xml => state379
+ move6.json => state14
+uidump6.xml => state15
+ move7.json => state19
+uidump7.xml => state355
+ move8.json => state13
+uidump8.xml => state355
+ move9.json => state29
+uidump9.xml => state363
+ move10.json => state73
+uidump10.xml => state15
+ move11.json => state57
+uidump11.xml => state17
+ move12.json => state87
+uidump12.xml => state15
+ move13.json => state16
+uidump13.xml => state120
+fail
+E/AndroidRuntime( 6336): FATAL EXCEPTION: main
+E/AndroidRuntime( 6336): Process: org.cwb, PID: 6336
+E/AndroidRuntime( 6336): java.lang.IndexOutOfBoundsException: Invalid index 2, size is 0
+E/AndroidRuntime( 6336): 	at java.util.ArrayList.throwIndexOutOfBoundsException(ArrayList.java:255)
+E/AndroidRuntime( 6336): 	at java.util.ArrayList.get(ArrayList.java:308)
+E/AndroidRuntime( 6336): 	at org.cwb.cwb_fish_countyTides$5.onItemSelected(cwb_fish_countyTides.java:152)
+E/AndroidRuntime( 6336): 	at android.widget.AdapterView.fireOnSelected(AdapterView.java:893)
+E/AndroidRuntime( 6336): 	at android.widget.AdapterView.access$200(AdapterView.java:48)
+E/AndroidRuntime( 6336): 	at android.widget.AdapterView$SelectionNotifier.run(AdapterView.java:861)
+E/AndroidRuntime( 6336): 	at android.os.Handler.handleCallback(Handler.java:733)
+E/AndroidRuntime( 6336): 	at android.os.Handler.dispatchMessage(Handler.java:95)
+E/AndroidRuntime( 6336): 	at android.os.Looper.loop(Looper.java:136)
+E/AndroidRuntime( 6336): 	at android.app.ActivityThread.main(ActivityThread.java:5111)
+E/AndroidRuntime( 6336): 	at java.lang.reflect.Method.invokeNative(Native Method)
+E/AndroidRuntime( 6336): 	at java.lang.reflect.Method.invoke(Method.java:515)
+E/AndroidRuntime( 6336): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:806)
+E/AndroidRuntime( 6336): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:622)
+E/AndroidRuntime( 6336): 	at dalvik.system.NativeStart.main(Native Method)

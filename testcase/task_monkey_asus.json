@@ -1,0 +1,19 @@
+{
+  "component": "TraceCollector",
+  "algorithm": "monkey",
+  "userName": "David_ABCA",
+  "appPackageName": "asus.wfd.activities",
+  "firstActivityName": "com.wfd.viewrelated.initframeac.InitFrameActivity",
+  "traceLength": 3,
+  "traceAmount": 1,
+  "version":"new",
+  "sleepTime": 1,
+  "serialNumber": "BL4C10D05831",
+  "instrument":"yes",
+  "apkFile":"ASUS_air.apk",
+  "abstractionLayer":0,
+  "abstractionLayout":"None",
+  "absIgnoredClasses":"None",
+  "abstractionAttributes":"setIgnoredAttrib",
+  "absIgnoredAttrib":["text"]
+}

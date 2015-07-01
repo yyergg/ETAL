@@ -1,0 +1,21 @@
+{
+    "stateXMLs": [],
+    "stateMoves": [
+        [
+            1,
+            1,
+            1,
+            149,
+            24
+        ],
+        [
+            1,
+            1,
+            1,
+            176,
+            12
+        ]
+    ],
+    "stateType": "Action",
+    "stateID": 300
+}

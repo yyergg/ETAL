@@ -1,0 +1,76 @@
+uidump0.xml => state0
+ move1.json => state11
+uidump1.xml => state12
+ move2.json => state29
+uidump2.xml => state30
+ move3.json => state6
+uidump3.xml => state492
+ move4.json => state31
+uidump4.xml => state492
+ move5.json => state11
+uidump5.xml => state12
+ move6.json => state14
+uidump6.xml => state15
+ move7.json => state16
+uidump7.xml => state17
+ move8.json => state83
+uidump8.xml => state15
+ move9.json => state16
+uidump9.xml => state17
+ move10.json => state18
+uidump10.xml => state15
+ move11.json => state57
+uidump11.xml => state58
+ move12.json => state199
+uidump12.xml => state15
+ move13.json => state19
+uidump13.xml => state42
+ move14.json => state10
+uidump14.xml => state0
+ move15.json => state29
+uidump15.xml => state30
+ move16.json => state6
+uidump16.xml => state492
+ move17.json => state43
+uidump17.xml => state9
+ move18.json => state29
+uidump18.xml => state30
+ move19.json => state46
+uidump19.xml => state30
+ move20.json => state73
+uidump20.xml => state15
+ move21.json => state19
+uidump21.xml => state79
+ move22.json => state4
+uidump22.xml => state30
+ move23.json => state73
+uidump23.xml => state15
+ move24.json => state57
+uidump24.xml => state17
+ move25.json => state51
+uidump25.xml => state15
+ move26.json => state19
+uidump26.xml => state79
+ move27.json => state80
+uidump27.xml => state15
+ move28.json => state16
+uidump28.xml => state120
+fail
+E/AndroidRuntime(28849): FATAL EXCEPTION: main
+E/AndroidRuntime(28849): Process: org.cwb, PID: 28849
+E/AndroidRuntime(28849): java.lang.IndexOutOfBoundsException: Invalid index 1, size is 0
+E/AndroidRuntime(28849): 	at java.util.ArrayList.throwIndexOutOfBoundsException(ArrayList.java:255)
+E/AndroidRuntime(28849): 	at java.util.ArrayList.get(ArrayList.java:308)
+E/AndroidRuntime(28849): 	at org.cwb.cwb_fish_countyTides$5.onItemSelected(cwb_fish_countyTides.java:152)
+E/AndroidRuntime(28849): 	at android.widget.AdapterView.fireOnSelected(AdapterView.java:893)
+E/AndroidRuntime(28849): 	at android.widget.AdapterView.access$200(AdapterView.java:48)
+E/AndroidRuntime(28849): 	at android.widget.AdapterView$SelectionNotifier.run(AdapterView.java:861)
+E/AndroidRuntime(28849): 	at android.os.Handler.handleCallback(Handler.java:733)
+E/AndroidRuntime(28849): 	at android.os.Handler.dispatchMessage(Handler.java:95)
+E/AndroidRuntime(28849): 	at android.os.Looper.loop(Looper.java:136)
+E/AndroidRuntime(28849): 	at android.app.ActivityThread.main(ActivityThread.java:5111)
+E/AndroidRuntime(28849): 	at java.lang.reflect.Method.invokeNative(Native Method)
+E/AndroidRuntime(28849): 	at java.lang.reflect.Method.invoke(Method.java:515)
+E/AndroidRuntime(28849): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:806)
+E/AndroidRuntime(28849): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:622)
+E/AndroidRuntime(28849): 	at dalvik.system.NativeStart.main(Native Method)

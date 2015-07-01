@@ -1,0 +1,44 @@
+uidump0.xml => state0
+ move1.json => state1
+uidump1.xml => state0
+ move2.json => state2
+uidump2.xml => state147
+ move3.json => state4
+uidump3.xml => state0
+ move4.json => state1
+uidump4.xml => state0
+ move5.json => state5
+uidump5.xml => state0
+ move6.json => state20
+uidump6.xml => state21
+ move7.json => state141
+uidump7.xml => state142
+ move8.json => state6
+uidump8.xml => state7
+fail
+E/AndroidRuntime( 1147): FATAL EXCEPTION: main
+E/AndroidRuntime( 1147): Process: org.cwb, PID: 1147
+E/AndroidRuntime( 1147): java.lang.RuntimeException: Unable to destroy activity {org.cwb/org.cwb.cwbTabActivity}: java.lang.SecurityException: Permission Denial: not allowed to send broadcast android.location.GPS_ENABLED_CHANGE from pid=1147, uid=10124
+E/AndroidRuntime( 1147): 	at android.app.ActivityThread.performDestroyActivity(ActivityThread.java:3497)
+E/AndroidRuntime( 1147): 	at android.app.ActivityThread.handleDestroyActivity(ActivityThread.java:3515)
+E/AndroidRuntime( 1147): 	at android.app.ActivityThread.access$1400(ActivityThread.java:141)
+E/AndroidRuntime( 1147): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1263)
+E/AndroidRuntime( 1147): 	at android.os.Handler.dispatchMessage(Handler.java:102)
+E/AndroidRuntime( 1147): 	at android.os.Looper.loop(Looper.java:136)
+E/AndroidRuntime( 1147): 	at android.app.ActivityThread.main(ActivityThread.java:5111)
+E/AndroidRuntime( 1147): 	at java.lang.reflect.Method.invokeNative(Native Method)
+E/AndroidRuntime( 1147): 	at java.lang.reflect.Method.invoke(Method.java:515)
+E/AndroidRuntime( 1147): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:806)
+E/AndroidRuntime( 1147): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:622)
+E/AndroidRuntime( 1147): 	at dalvik.system.NativeStart.main(Native Method)
+E/AndroidRuntime( 1147): Caused by: java.lang.SecurityException: Permission Denial: not allowed to send broadcast android.location.GPS_ENABLED_CHANGE from pid=1147, uid=10124
+E/AndroidRuntime( 1147): 	at android.os.Parcel.readException(Parcel.java:1465)
+E/AndroidRuntime( 1147): 	at android.os.Parcel.readException(Parcel.java:1419)
+E/AndroidRuntime( 1147): 	at android.app.ActivityManagerProxy.broadcastIntent(ActivityManagerNative.java:2383)
+E/AndroidRuntime( 1147): 	at android.app.ContextImpl.sendBroadcast(ContextImpl.java:1176)
+E/AndroidRuntime( 1147): 	at android.content.ContextWrapper.sendBroadcast(ContextWrapper.java:365)
+E/AndroidRuntime( 1147): 	at org.cwb.cwbTabActivity.onDestroy(cwbTabActivity.java:453)
+E/AndroidRuntime( 1147): 	at android.app.Activity.performDestroy(Activity.java:5420)
+E/AndroidRuntime( 1147): 	at android.app.Instrumentation.callActivityOnDestroy(Instrumentation.java:1117)
+E/AndroidRuntime( 1147): 	at android.app.ActivityThread.performDestroyActivity(ActivityThread.java:3484)
+E/AndroidRuntime( 1147): 	... 11 more

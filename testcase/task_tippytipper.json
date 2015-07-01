@@ -1,0 +1,18 @@
+{
+  "component": "TraceCollector",
+  "algorithm": "monkey",
+  "userName": "David",
+  "appPackageName": "net.mandaria.tippytipper",
+  "firstActivityName": ".activities.TippyTipper",
+  "traceLength": 5,
+  "traceAmount": 2,
+  "version":"old",
+  "sleepTime": 4,
+  "serialNumber": "emulator-5554",
+  "apkFile":"TippyTipperv_1_2.apk",
+  "abstractionLayer":15,
+  "abstractionLayout":"setConsiderLayoutOnly",
+  "absIgnoredClasses":"None",
+  "abstractionAttributes":"setIgnoredAttrib",
+  "absIgnoredAttrib":["text"]
+}

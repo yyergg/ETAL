@@ -1,0 +1,42 @@
+uidump0.xml => state353
+ move1.json => state11
+uidump1.xml => state417
+ move2.json => state10
+uidump2.xml => state353
+ move3.json => state20
+uidump3.xml => state361
+ move4.json => state134
+uidump4.xml => state383
+ move5.json => state29
+uidump5.xml => state363
+ move6.json => state73
+uidump6.xml => state15
+ move7.json => state16
+uidump7.xml => state120
+ move8.json => state125
+uidump8.xml => state15
+ move9.json => state57
+uidump9.xml => state17
+ move10.json => state87
+uidump10.xml => state15
+ move11.json => state16
+uidump11.xml => state120
+fail
+E/AndroidRuntime(27724): FATAL EXCEPTION: main
+E/AndroidRuntime(27724): Process: org.cwb, PID: 27724
+E/AndroidRuntime(27724): java.lang.IndexOutOfBoundsException: Invalid index 1, size is 0
+E/AndroidRuntime(27724): 	at java.util.ArrayList.throwIndexOutOfBoundsException(ArrayList.java:255)
+E/AndroidRuntime(27724): 	at java.util.ArrayList.get(ArrayList.java:308)
+E/AndroidRuntime(27724): 	at org.cwb.cwb_fish_countyTides$5.onItemSelected(cwb_fish_countyTides.java:152)
+E/AndroidRuntime(27724): 	at android.widget.AdapterView.fireOnSelected(AdapterView.java:893)
+E/AndroidRuntime(27724): 	at android.widget.AdapterView.access$200(AdapterView.java:48)
+E/AndroidRuntime(27724): 	at android.widget.AdapterView$SelectionNotifier.run(AdapterView.java:861)
+E/AndroidRuntime(27724): 	at android.os.Handler.handleCallback(Handler.java:733)
+E/AndroidRuntime(27724): 	at android.os.Handler.dispatchMessage(Handler.java:95)
+E/AndroidRuntime(27724): 	at android.os.Looper.loop(Looper.java:136)
+E/AndroidRuntime(27724): 	at android.app.ActivityThread.main(ActivityThread.java:5111)
+E/AndroidRuntime(27724): 	at java.lang.reflect.Method.invokeNative(Native Method)
+E/AndroidRuntime(27724): 	at java.lang.reflect.Method.invoke(Method.java:515)
+E/AndroidRuntime(27724): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:806)
+E/AndroidRuntime(27724): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:622)
+E/AndroidRuntime(27724): 	at dalvik.system.NativeStart.main(Native Method)

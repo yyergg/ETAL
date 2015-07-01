@@ -10,7 +10,7 @@ class TraceLoader:
 
     def loadTrace(self,pathTraceFolder):
 
-        self.pathTraceFolder = os.path.join(os.getcwd(),pathTraceFolder)
+        self.pathTraceFolder = os.path.join(os.getcwd(),"..",pathTraceFolder)
         listTraces = []
         print(self.pathTraceFolder)
         for root, dirs, files in os.walk(self.pathTraceFolder):
@@ -30,12 +30,12 @@ class TraceLoader:
                                 print("Error: Click before any state. In", os.path.join(root,filename))
                             #click = preState+"_"+lines[i].split(" => ")[1].replace("click ","").replace("\n","")
                             click = lines[i].split(" => ")[1].replace("state","").replace("\n","")
-                            print("click="+click)
+                            #print("click="+click)
                             newTrace.append(click)
                         elif lines[i].find("uidump") != -1:
                             preState = lines[i].split(" => ")[1].replace("state","").replace("\n","")
                             newTrace.append(preState)
-                            print("state="+preState)
+                            #print("state="+preState)
                         elif lines[i].find("pass") != -1:
                             self.listTraces.append((newTrace, "Pass"))
                             break

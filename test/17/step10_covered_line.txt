@@ -1,3 +1,0 @@
---------- beginning of /dev/log/main
---------- beginning of /dev/log/system
-I/System.out( 1553): There is callback from service

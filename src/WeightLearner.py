@@ -45,7 +45,7 @@ class WeightLearner:
 ##            self.printPopulation()
             i += 1
         self.eliminate()
-
+##
 ##    def printPopulation(self):
 ##        for w in self.listWeight:
 ##            print(w.weight,"|",w.threshold,"|",w.score)

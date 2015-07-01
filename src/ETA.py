@@ -4,6 +4,9 @@ import RuleMiner
 import RuleFilter
 import RuleChecker
 import WeightLearner
+##import TaaDTCG
+import TestingTask
+import AdbExecutor
 import os
 import sys
 
@@ -11,40 +14,44 @@ TL = TraceLoader.TraceLoader()
 TL.loadTrace("test")
 TL.clusterTraces()
 TL.printClusteredTrace()
-
+##sys.exit(0)
 RM = RuleMiner.RuleMiner()
 RM.setTrace(TL.clusteredTraces["Pass"])
-print(TL.clusteredTraces["Pass"])
-RM.setSupportThreshold(0.49)
-RM.setConfidenceThreshold(0.8)
+##print(TL.clusteredTraces["Pass"])
+RM.setSupportThreshold(0.4)
+RM.setConfidenceThreshold(0.5)
 RM.miningRule()
 print("Pass Rules:")
-RM.printRule(RM.rules,0)
+##RM.printRule(RM.rules,0)
 
-print("start mining fail rule:")
+
+
 failRuleSetDict = {}
 for key, value in TL.clusteredTraces.items():
     if key != "Pass":
-        print(TL.clusteredTraces[key])
+##        print(TL.clusteredTraces[key])
         RM2 = RuleMiner.RuleMiner()
         RM2.setTrace(TL.clusteredTraces[key])
         RM2.setSupportThreshold(0.4)
         RM2.setConfidenceThreshold(0.5)
         RM2.miningRule()
-        RM2.printRule(RM2.rules,0)
-
+##        print("Fail rules = ",RM2.rules)
+##        RM2.printRule(RM2.rules,0)
         # First Level Filter XOR - Remove pass rule which existing in fail rule from fail rule set
         RuleFilter.getSubtract(RM2.rules, RM.rules)
-        print("Fail Rules after 1-level filter:")
-        RM2.printRule(RM2.rules,0)
+        print("Fail rules after 1-level filter:")
+##        RM2.printRule(RM2.rules,0)
         ruleList = []
         for r in RM2.getAllRules(RM2.rules):
             ruleList.append(r)
         failRuleSetDict[key] = ruleList
-
+        print(len(ruleList))
+        print(":")
+        print(ruleList)
 
 # Second Level Filter - Apply fail rule on pass traces
 i = 0
+ratio = 0.1
 for key,value in failRuleSetDict.items():
     while i < len(value):
         if len(value[i]) == 0:
@@ -55,10 +62,13 @@ for key,value in failRuleSetDict.items():
         for t in TL.clusteredTraces["Pass"]:
             if RuleChecker.ruleCheck(value[i],t):
                 counter += 1
-        if counter > 2:
+                ratio = counter / len(TL.clusteredTraces["Pass"])
+        if ratio > 0.05:
             del value[i]
             i -= 1
         i += 1
+print("Fail rules after 2-level filter:")
+print(value)
 
 
 topFailRules = {}
@@ -67,22 +77,51 @@ for key, value in failRuleSetDict.items():
     WL = WeightLearner.WeightLearner(value,TL.clusteredTraces)
     WL.buildMatrix()
     WL.learn(key)
-    topFailRules[key] = WL.getTopRule()
+    if len(value) > 0:
+        topFailRules[key] = WL.getTopRule()
 
 traceInList = []
 for key, value in TL.clusteredTraces.items():
     traceInList =  traceInList + value
 
-##                print("traceinlist:")
-print(traceInList)
-##sys.exit(0)
+##automatafolder = os.path.
+##TGG = TaaDTCG.testcase(topFailRules[value],automatafolder)
+##
+##for key, value in failRuleSetDict.items():
+##    for i in value:
+##        for node in i
+##            TGG.findShortestPath(,)
+
+##TGG = TaaDTCG.TestCaseGenerator2(traceInList)
+
+
 
 TG = TraceGenerator.TraceGenerator(traceInList)
 TG.buildGraph()
 
+text_file = open("../test/FailRule.txt","wb")
+
 for key,value in topFailRules.items():
-    print("generate trace for top rule of cluster:",key)
-    print("result:",TG.generateTrace(value))
+    print("generate trace for top rule of cluster:",key,value)
+    print("Fail shortest path = ",TG.generateTrace(value))
+    for idx, item in enumerate(TG.generateTrace(value)):
+        if idx == len(TG.generateTrace(value))-1:
+            text_file.write(bytes(str(item) + "",'UTF-8'))
+        else:
+            text_file.write(bytes(str(item) + " ",'UTF-8'))
+##    text_file.write(value)
+    text_file.close()
+    text_file = open("../test/Output.txt","wb")
+    for idx, item in enumerate(TG.generateTrace(value)):
+        if idx == len(TG.generateTrace(value))-1:
+            text_file.write(bytes(str(item) + "",'UTF-8'))
+        else:
+            text_file.write(bytes(str(item) + " ",'UTF-8'))
+    text_file.close()
+
+
+##print("result:",TG.generateTrace(value))
+
 
 '''
 example to test filter

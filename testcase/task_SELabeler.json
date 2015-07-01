@@ -1,0 +1,18 @@
+{
+  "component": "TraceCollector",
+  "algorithm": "SELabeler",
+  "userName": "David",
+  "appPackageName": "net.mandaria.tippytipper",
+  "firstActivityName": ".activities.TippyTipper",
+  "traceLength": 5,
+  "traceAmount": 1,
+  "version":"new",
+  "sleepTime": 1,
+  "serialNumber": "BL4C10D05831",
+  "apkFile":"TippyTipperv_1_2.apk",
+  "abstractionLayer":0,
+  "abstractionLayout":"None",
+  "absIgnoredClasses":"None",
+  "abstractionAttributes":"setIgnoredAttrib",
+  "absIgnoredAttrib":["text"]
+}

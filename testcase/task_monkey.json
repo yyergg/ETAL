@@ -1,0 +1,20 @@
+{
+  "component": "TraceCollector",
+  "algorithm": "TestCaseGenerator2",
+  "userName": "MN",
+  "appPackageName":"org.cwb",
+  "apkFile":"CWB",
+  "firstActivityName":".cwbTabActivity",
+  "traceLength": 1000,
+  "traceAmount": 1,
+  "version":"old",
+  "sleepTime": 1,
+  "serialNumber": "2a2b9c2",
+  "homePackage":"com.sonyericsson.home",
+  "instrument":"no",
+  "abstractionLayer":0,
+  "abstractionLayout":"None",
+  "absIgnoredClasses":"None",
+  "abstractionAttributes":"setIgnoredAttrib",
+  "absIgnoredAttrib":["text"]
+}

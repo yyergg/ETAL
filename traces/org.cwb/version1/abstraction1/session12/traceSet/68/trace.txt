@@ -1,0 +1,36 @@
+uidump0.xml => state0
+ move1.json => state11
+uidump1.xml => state42
+ move2.json => state1
+uidump2.xml => state42
+ move3.json => state6
+uidump3.xml => state7
+ move4.json => state29
+uidump4.xml => state30
+ move5.json => state73
+uidump5.xml => state15
+ move6.json => state57
+uidump6.xml => state17
+ move7.json => state83
+uidump7.xml => state15
+ move8.json => state16
+uidump8.xml => state120
+fail
+E/AndroidRuntime(  806): FATAL EXCEPTION: main
+E/AndroidRuntime(  806): Process: org.cwb, PID: 806
+E/AndroidRuntime(  806): java.lang.IndexOutOfBoundsException: Invalid index 2, size is 0
+E/AndroidRuntime(  806): 	at java.util.ArrayList.throwIndexOutOfBoundsException(ArrayList.java:255)
+E/AndroidRuntime(  806): 	at java.util.ArrayList.get(ArrayList.java:308)
+E/AndroidRuntime(  806): 	at org.cwb.cwb_fish_countyTides$5.onItemSelected(cwb_fish_countyTides.java:152)
+E/AndroidRuntime(  806): 	at android.widget.AdapterView.fireOnSelected(AdapterView.java:893)
+E/AndroidRuntime(  806): 	at android.widget.AdapterView.access$200(AdapterView.java:48)
+E/AndroidRuntime(  806): 	at android.widget.AdapterView$SelectionNotifier.run(AdapterView.java:861)
+E/AndroidRuntime(  806): 	at android.os.Handler.handleCallback(Handler.java:733)
+E/AndroidRuntime(  806): 	at android.os.Handler.dispatchMessage(Handler.java:95)
+E/AndroidRuntime(  806): 	at android.os.Looper.loop(Looper.java:136)
+E/AndroidRuntime(  806): 	at android.app.ActivityThread.main(ActivityThread.java:5111)
+E/AndroidRuntime(  806): 	at java.lang.reflect.Method.invokeNative(Native Method)
+E/AndroidRuntime(  806): 	at java.lang.reflect.Method.invoke(Method.java:515)
+E/AndroidRuntime(  806): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:806)
+E/AndroidRuntime(  806): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:622)
+E/AndroidRuntime(  806): 	at dalvik.system.NativeStart.main(Native Method)

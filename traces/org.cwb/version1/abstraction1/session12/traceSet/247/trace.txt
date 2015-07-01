@@ -1,0 +1,58 @@
+uidump0.xml => state0
+ move1.json => state6
+uidump1.xml => state44
+ move2.json => state31
+uidump2.xml => state44
+ move3.json => state31
+uidump3.xml => state44
+ move4.json => state32
+uidump4.xml => state44
+ move5.json => state29
+uidump5.xml => state30
+ move6.json => state40
+uidump6.xml => state64
+ move7.json => state65
+uidump7.xml => state66
+ move8.json => state237
+uidump8.xml => state238
+ move9.json => state65
+uidump9.xml => state66
+ move10.json => state68
+uidump10.xml => state69
+ move11.json => state4
+uidump11.xml => state30
+ move12.json => state6
+uidump12.xml => state44
+ move13.json => state49
+uidump13.xml => state50
+ move14.json => state136
+uidump14.xml => state244
+ move15.json => state29
+uidump15.xml => state30
+ move16.json => state73
+uidump16.xml => state15
+ move17.json => state57
+uidump17.xml => state17
+ move18.json => state51
+uidump18.xml => state15
+ move19.json => state16
+uidump19.xml => state120
+fail
+E/AndroidRuntime(18074): FATAL EXCEPTION: main
+E/AndroidRuntime(18074): Process: org.cwb, PID: 18074
+E/AndroidRuntime(18074): java.lang.IndexOutOfBoundsException: Invalid index 2, size is 0
+E/AndroidRuntime(18074): 	at java.util.ArrayList.throwIndexOutOfBoundsException(ArrayList.java:255)
+E/AndroidRuntime(18074): 	at java.util.ArrayList.get(ArrayList.java:308)
+E/AndroidRuntime(18074): 	at org.cwb.cwb_fish_countyTides$5.onItemSelected(cwb_fish_countyTides.java:152)
+E/AndroidRuntime(18074): 	at android.widget.AdapterView.fireOnSelected(AdapterView.java:893)
+E/AndroidRuntime(18074): 	at android.widget.AdapterView.access$200(AdapterView.java:48)
+E/AndroidRuntime(18074): 	at android.widget.AdapterView$SelectionNotifier.run(AdapterView.java:861)
+E/AndroidRuntime(18074): 	at android.os.Handler.handleCallback(Handler.java:733)
+E/AndroidRuntime(18074): 	at android.os.Handler.dispatchMessage(Handler.java:95)
+E/AndroidRuntime(18074): 	at android.os.Looper.loop(Looper.java:136)
+E/AndroidRuntime(18074): 	at android.app.ActivityThread.main(ActivityThread.java:5111)
+E/AndroidRuntime(18074): 	at java.lang.reflect.Method.invokeNative(Native Method)
+E/AndroidRuntime(18074): 	at java.lang.reflect.Method.invoke(Method.java:515)
+E/AndroidRuntime(18074): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:806)
+E/AndroidRuntime(18074): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:622)
+E/AndroidRuntime(18074): 	at dalvik.system.NativeStart.main(Native Method)

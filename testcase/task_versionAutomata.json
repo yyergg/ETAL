@@ -1,0 +1,10 @@
+{
+  "component": "AutomataGenerator",
+  "algorithm": "VersionAutomata",
+  "userName": "MN",
+  "appPackageName": "edu.nyu.cs.omnidroid.app",
+  "versionNum":"1",
+  "abstractionNum":"1",
+  "reset":"True",
+  "targetSession":[7]
+}

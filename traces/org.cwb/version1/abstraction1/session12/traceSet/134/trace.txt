@@ -1,0 +1,68 @@
+uidump0.xml => state0
+ move1.json => state1
+uidump1.xml => state0
+ move2.json => state1
+uidump2.xml => state0
+ move3.json => state6
+uidump3.xml => state7
+ move4.json => state32
+uidump4.xml => state7
+ move5.json => state10
+uidump5.xml => state0
+ move6.json => state5
+uidump6.xml => state0
+ move7.json => state29
+uidump7.xml => state30
+ move8.json => state73
+uidump8.xml => state15
+ move9.json => state19
+uidump9.xml => state79
+ move10.json => state43
+uidump10.xml => state79
+ move11.json => state80
+uidump11.xml => state15
+ move12.json => state16
+uidump12.xml => state120
+ move13.json => state205
+uidump13.xml => state15
+ move14.json => state16
+uidump14.xml => state294
+ move15.json => state121
+uidump15.xml => state15
+ move16.json => state19
+uidump16.xml => state79
+ move17.json => state11
+uidump17.xml => state278
+ move18.json => state13
+uidump18.xml => state278
+ move19.json => state29
+uidump19.xml => state79
+ move20.json => state10
+uidump20.xml => state0
+fail
+E/AndroidRuntime( 4951): FATAL EXCEPTION: main
+E/AndroidRuntime( 4951): Process: org.cwb, PID: 4951
+E/AndroidRuntime( 4951): java.lang.RuntimeException: Unable to destroy activity {org.cwb/org.cwb.cwbTabActivity}: java.lang.SecurityException: Permission Denial: not allowed to send broadcast android.location.GPS_ENABLED_CHANGE from pid=4951, uid=10124
+E/AndroidRuntime( 4951): 	at android.app.ActivityThread.performDestroyActivity(ActivityThread.java:3497)
+E/AndroidRuntime( 4951): 	at android.app.ActivityThread.handleDestroyActivity(ActivityThread.java:3515)
+E/AndroidRuntime( 4951): 	at android.app.ActivityThread.access$1400(ActivityThread.java:141)
+E/AndroidRuntime( 4951): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1263)
+E/AndroidRuntime( 4951): 	at android.os.Handler.dispatchMessage(Handler.java:102)
+E/AndroidRuntime( 4951): 	at android.os.Looper.loop(Looper.java:136)
+E/AndroidRuntime( 4951): 	at android.app.ActivityThread.main(ActivityThread.java:5111)
+E/AndroidRuntime( 4951): 	at java.lang.reflect.Method.invokeNative(Native Method)
+E/AndroidRuntime( 4951): 	at java.lang.reflect.Method.invoke(Method.java:515)
+E/AndroidRuntime( 4951): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:806)
+E/AndroidRuntime( 4951): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:622)
+E/AndroidRuntime( 4951): 	at dalvik.system.NativeStart.main(Native Method)
+E/AndroidRuntime( 4951): Caused by: java.lang.SecurityException: Permission Denial: not allowed to send broadcast android.location.GPS_ENABLED_CHANGE from pid=4951, uid=10124
+E/AndroidRuntime( 4951): 	at android.os.Parcel.readException(Parcel.java:1465)
+E/AndroidRuntime( 4951): 	at android.os.Parcel.readException(Parcel.java:1419)
+E/AndroidRuntime( 4951): 	at android.app.ActivityManagerProxy.broadcastIntent(ActivityManagerNative.java:2383)
+E/AndroidRuntime( 4951): 	at android.app.ContextImpl.sendBroadcast(ContextImpl.java:1176)
+E/AndroidRuntime( 4951): 	at android.content.ContextWrapper.sendBroadcast(ContextWrapper.java:365)
+E/AndroidRuntime( 4951): 	at org.cwb.cwbTabActivity.onDestroy(cwbTabActivity.java:453)
+E/AndroidRuntime( 4951): 	at android.app.Activity.performDestroy(Activity.java:5420)
+E/AndroidRuntime( 4951): 	at android.app.Instrumentation.callActivityOnDestroy(Instrumentation.java:1117)
+E/AndroidRuntime( 4951): 	at android.app.ActivityThread.performDestroyActivity(ActivityThread.java:3484)
+E/AndroidRuntime( 4951): 	... 11 more
